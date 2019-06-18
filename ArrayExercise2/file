@@ -1,0 +1,125 @@
+import java.util.Arrays;
+import java.util.Scanner;
+import java.util.Set;
+
+
+public class ArrayExercise2 {
+    public static void main(String [] args){
+
+    Scanner key = new Scanner(System.in);
+
+    Boolean continueProgram = true;
+    do {
+        System.out.println("\nWhich part of program would you like to run?" +
+                "\n-------------------------------------\n" +
+                "Part 1: Print a string in reverse\n" +
+                "Part 2: Find a length of a string without using the library function\n" +
+                "Part 3: Prompts user to input 10 values. Program will remove duplicates and print out remaining values\n" +
+                "Part 4: Given two arrays, program will print all pairs that give a sum of 13.\n" +
+                "Part 5: Prompts user to input 10 values. Program will print total number of odd and even values.\n" +
+                "Part 6: End Program");
+
+        System.out.print("Part: ");
+        byte answer1 = key.nextByte();
+
+
+        switch (answer1) {
+            case 1:
+
+                System.out.println("\n\nThis program prints the world 'Welcome' backwards.");
+                String word1 = "Welcome";
+
+                for (int i = (word1.length() - 1); i >= 0; i--) {
+                    System.out.print(word1.charAt(i));
+//            System.out.println(i);
+//            System.out.println(word1.length());
+//                    if (word1[i]==(word1[i+1]))
+                    System.out.println("\n\n***End of Part 1 program***");
+                }
+                break;
+
+            case 2:
+                System.out.print("Input Word or Sentence: ");
+                String userInput1 = key.useDelimiter("\n").next();    // User initializes Word/Sentence
+                System.out.println(userInput1);
+                char charArray[] = userInput1.toCharArray();     // Word/Sentence is stored in a character array
+                int c = 0;                          // Character number counter initialized
+                int upperC = 0;                     // Uppercase character number counter initialized
+                // for (char item: charArray)
+                System.out.println(Arrays.toString(charArray));
+
+                for (char item : charArray) {             //For loop to count both number of characters in Word/Sentence and number of uppercase characters
+
+                    if (item >= 'A' && item <= 'Z')     //If character falls between uppercase 'A' and uppercase 'Z' ASCII code, the upperC counter in incremented
+                    {
+                        upperC++;
+                    }
+                    if (item == ' ')                    //Spaces in the Word/Sentence decrement the character number counter
+                    {
+                        c--;
+                    }
+                    c++;                                // Character number counter is incremented every run of enhanced for loop
+                }
+                System.out.println("number of characters in string: " + c);                 //Prints total number of characters in Word
+                System.out.println("number of upper case characters in string: " + upperC);  //Prints total number of uppercase characters in Word
+                System.out.println("End of Case 2");
+                break;
+
+            case 3:
+                int inputValues[] = new int[10];                                   //Initialize array for 10 values
+                Scanner keyboard = new Scanner(System.in).reset();                  //resets Scanner delimiter
+                System.out.println("Please input 10 values: ");
+                int tempArray[] = new int[10];
+
+                for (int var : inputValues) {
+                    inputValues[var] = keyboard.nextInt();
+                }
+                for (int var : tempArray){
+                    tempArray[var] = inputValues[var];
+                }
+                for (int i : inputValues){
+                    for (int check : inputValues){
+                        if (inputValues[i]==tempArray[check]){
+                            tempArray[i] = 0;
+                        }
+                    }
+                }
+                System.out.println(Arrays.toString(tempArray));
+
+
+//                for (int i=0; i<10; i++) {
+//                    int tempArray[] = new int[10];
+//                    boolean checkArray[] = new boolean[10];
+//                    for (int p = 0; p < 10; p++){
+//                        tempArray[p] = (inputValues[i]);
+//                    }
+//                    for (int var1 : inputValues){
+//                        if (inputValues[i]==tempArray[i]) {
+//                            checkArray[i] = true;
+//                        }
+//                    }
+//                    System.out.println(Arrays.toString(checkArray));
+//                    System.out.println(Arrays.toString(tempArray));
+
+
+
+
+
+
+
+                System.out.println("Case 3");
+                break;
+            case 4:
+                System.out.println("Case 4");
+                break;
+            case 5:
+                System.out.println("Case 5");
+                break;
+            case 6:
+                continueProgram = false;
+                break;
+        }
+
+        } while (continueProgram);
+    }
+}
